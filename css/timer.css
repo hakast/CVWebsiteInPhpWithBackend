@@ -1,0 +1,40 @@
+/*TVÅ SPAN DÄR TIMER LIGGER*/
+#clock span{	
+	position: relative;
+	top: 0;
+	text-align: center;
+	font-size: 1.2em;
+	font-family: 'Poiret One';
+	margin: 0 0%;
+	color: black;
+	padding: 10px;
+	box-sizing: border-box;	
+}
+
+#clockTwo span{
+	position: relative;
+	top: 0;
+	text-align: center;
+	font-size: 1.2em;
+	font-family: 'Poiret One';
+	margin: 0 0%;
+	color: black;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+/*TRANSFORM SOM SNURRAR TIMER*/
+#ruta{
+	/*-ms-transform: rotate(3deg); /* IE 9 */
+    /*-webkit-transform: rotate(3deg); /* Safari */
+    /*transform: rotate(3deg); /* Standard syntax */
+	transform-origin: center center;
+    -webkit-animation: dangle 1.5s ;
+}
+
+@-webkit-keyframes dangle {
+    0% { -webkit-transform: rotate(360deg); }	
+}
+
+
+

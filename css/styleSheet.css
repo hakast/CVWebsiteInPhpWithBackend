@@ -1,0 +1,317 @@
+﻿/*DELA IN SIDAN I 12 KOLUMNER FÖRBEREDELSE FÖR RESPONSIV OCH PLACERING AV ELEMENT*/
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    border: 1px solid red;
+    padding: 15px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.row {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 5px;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+/* RESPONSIVE FÖR MOBILTELEFONER */
+[class*="col-"] {
+    width: 100%;
+}
+
+@media all and (max-width: 900px) {
+  [class*="col- "]  {
+    font-size: 0.5em;
+  }
+}
+
+/*MEDIEQUERIEs 600 - 768px LÄSPLATTOR*/
+@media only screen and (min-width: 600px) {
+    .col-m-1 {
+        width: 8.33%;
+    }
+
+    .col-m-2 {
+        width: 16.66%;
+    }
+
+    .col-m-3 {
+        width: 25%;
+    }
+
+    .col-m-4 {
+        width: 33.33%;
+    }
+
+    .col-m-5 {
+        width: 41.66%;
+    }
+
+    .col-m-6 {
+        width: 50%;
+    }
+
+    .col-m-7 {
+        width: 58.33%;
+    }
+
+    .col-m-8 {
+        width: 66.66%;
+    }
+
+    .col-m-9 {
+        width: 75%;
+    }
+
+    .col-m-10 {
+        width: 83.33%;
+    }
+
+    .col-m-11 {
+        width: 91.66%;
+    }
+
+    .col-m-12 {
+        width: 100%;
+    }
+}
+
+/* FÖR STÖRRE SKÄRMAR */
+@media only screen and (min-width: 768px) {
+
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    .col-5 {
+        width: 41.66%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.33%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.33%;
+    }
+
+    .col-11 {
+        width: 91.66%;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
+}
+
+span {
+    color: #ffffff;
+}
+
+/*PARAGRAFER STYLAS*/
+p {
+    padding-top: 0px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+/*STYLING AV H1-TAGGAR*/
+h1 {
+    font-family: "Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 100;
+    font-size: 30px;
+    margin: 40px 0px 20px;
+}
+
+/*STYLING H5-TAGGAR*/
+h5 {
+    color: gray;
+    margin: 10px 0px 0px;
+    padding-top: 0px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+/*STYLING A-LÄNKAR*/
+a {
+    color: #4d4848;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #ffffff;
+}
+
+/*POPUP FÖNSTER VID KLICK PÅ CV KARUSELL*/
+#popup {
+    background-color: #ffffff;
+    color: #ffffff;
+    font-family: Arial;
+    margin: 0px;   
+}
+
+#popup > h1 {
+    font-family: 'Poiret one', regular;
+    text-align: left;
+    font-size: 40px;
+    color:#4d4848;
+}
+
+    #popup > p{
+    color:#2b2929;
+    font-family: 'Poiret one', regular;
+}
+
+    .clearfix {
+    overflow: auto;
+}
+
+#popup > p > img {
+    float: left;
+    margin: 0px 10px 0px 0px;
+}    
+
+/*SLUT STYLING POPUP*/
+
+/*DEN TEXT SOM VISAS I SKICKAT MEDDELANDE*/
+p {
+    color: dimgray;
+    font-family: Arial;
+}
+
+/*GOOGLE FONTS STYLING*/
+#googlePoiret {
+    font-family: 'Poiret one', regular;
+    color: dimgray;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/*BILD PÅ MIG FÖRSTA SIDAN*/
+.rundBild{
+    border-radius:100%;
+    border: 0.1px solid lightslategrey;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#textIndex{
+    font-family: 'Poiret one', regular;
+    font-size: 11em;
+    color: dimgray;
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 40px;
+}
+
+/*MEDIEQUERIE 1 FÖR TEXT INDEX-SIDAN*/
+@media screen and (max-width: 1000px) {
+    #textIndex {
+        font-size: 5em;
+    }
+}
+
+/*MEDIEQUERIE 2 FÖR TEXT INDEX-SIDAN*/
+@media screen and (max-width: 600px) {
+    #textIndex {
+        font-size: 3em;
+    }
+}
+
+/*MEDIEQUERIE 1 FÖR TEXT TIMER*/
+@media screen and (max-width: 900px) {
+    #googlePoiret {
+        font-size: 3em;
+    }
+}
+
+/*MEDIEQUERIE 2 FÖR TEXT TIMER*/
+@media screen and (max-width: 600px) {
+    #googlePoiret {
+        font-size: 2em;
+    }
+}
