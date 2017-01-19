@@ -55,7 +55,7 @@
 
 <!--Bakgrund-->
           <h3>Bakgrund</h3>
-          <p>Skogsarbetare från Norrlands djupa skogar med en faiblesse för datorer.</p>
+          <p>Skogsarbetare från Norrlands djupa skogar med intresse för programmering.</p>
           <p class="readmore"><a href="bakgrund.php" onClick='openRequestedPopup(this.href); return (false)' target="_blank">Läs mer &raquo;</a></p>
         </div>
 
