@@ -99,6 +99,26 @@
       </form>
     </div> 
 
+<?php
+
+// SKYDD I GÄSTBOKEN MOT INJECTION OCH XSS
+$sender = $phone = $email = $message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $sender = test_input($_POST["sender"]);
+  $phone = test_input($_POST["phone"]);
+  $email = test_input($_POST["email"]);
+  $message = test_input($_POST["message"]);
+ }
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
 <!--PUBLIK GÄSTBOK-->
    <div class="col-3">
       <form method='post' action=''>
@@ -134,7 +154,7 @@ if( isset($_POST['message']) && isset($_POST['sender']) && isset($_POST['phone']
   $email = mysqli_real_escape_string ($db, $_POST['email']);
 	
 	
-	//F	ORMULERA EN FRÅGA TILL DATABASEN
+//FORMULERA EN FRÅGA TILL DATABASEN
 	$query = "
             INSERT INTO entries
             (date, message, sender, phone, email)
@@ -143,11 +163,9 @@ if( isset($_POST['message']) && isset($_POST['sender']) && isset($_POST['phone']
         ";
 	
 	
-	//S	KICKA FRÅGAN TILL DATABASEN
+//SKICKA FRÅGAN TILL DATABASEN
 	mysqli_query($db, $query);
 	
-	//e	cho "Skickat!";
-	//T	og bort. Bytte till onclick på input ovan.
 }
 
 
