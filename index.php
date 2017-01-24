@@ -1,11 +1,15 @@
 <?php
 //DET HÄR ÄR SIDAN MED INLOGGNINGSKNAPP
 
-include('admin/login.php'); //login filen
+include('admin/login.php');
+//login filen
 
 if(isset($_SESSION['login_user'])){
+	
 	header("location: admin/profile.php");
+	
 }
+
 ?>
 <!doctype html>
 <html lang="sv-se">
@@ -18,7 +22,6 @@ if(isset($_SESSION['login_user'])){
 <!--LÄNK TILL FAVICON-->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
 
-<!--fick felmeddelande tidigare på nedanstående script, undrar varför???-->
     <script src="js/jquery-1.7.2.min.js"></script>
 
 <!--STYLING-->
@@ -81,7 +84,8 @@ if(isset($_SESSION['login_user'])){
 </div>
 
 <!--//INKLUDERAR FOOTER-->
-    <?php include('includes/footer.php'); ?>
+    <?php include('includes/footer.php');
+?>
 
 <!--ACCESSKEY TILL HANGMAN. (CHROME = alt + h) (FIREFOX = shift + alt + h) -->
 <a id="hang" href="http://v3.hakanastrom.se/hangman/hangman.html"></a><br>

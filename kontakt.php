@@ -72,8 +72,10 @@
   </style>
 </head>
 <body>
-<?php require_once ('menu.php');?>
-<?php include('mailto.php'); ?>
+<?php require_once ('menu.php');
+?>
+<?php include('mailto.php');
+?>
 
 <div class="row">
     <div class="col-12">
@@ -117,40 +119,52 @@
 <div class="col-6">
   <?php
 //UPPKOPPLING MOT DATABASEN
-    //$db = mysqli_connect('guestbook-219308.mysql.binero.se', '219308_eb63405', 'Augusti144', '219308-guestbook'); 
-    $db = mysqli_connect('localhost', 'root', '', '219308-guestbook');
+//$db = mysqli_connect('guestbook-219308.mysql.binero.se', '219308_eb63405', 'Augusti144', '219308-guestbook');
+
+$db = mysqli_connect('localhost', 'root', '', '219308-guestbook');
+
 
 //KOLL OM NEDANSTÅENDE FÄLT SKICKATS. SPARA I VARSIN VARIABEL
-    if( isset($_POST['message']) && isset($_POST['sender']) && isset($_POST['phone']) && isset($_POST['email'])){ 
-        $message = $_POST['message'];
-        $sender = $_POST['sender'];
-        $phone = $_POST['phone'];
-        $email = $_POST['email'];
-    
-//FORMULERA EN FRÅGA TILL DATABASEN
-        $query = "
+if( isset($_POST['message']) && isset($_POST['sender']) && isset($_POST['phone']) && isset($_POST['email'])){
+
+// SKYDD MOT INJECTIONS	
+  $message = mysqli_real_escape_string ($db, $_POST['message']);	
+  $sender = mysqli_real_escape_string ($db, $_POST['sender']);	
+  $phone = mysqli_real_escape_string ($db, $_POST['phone']);
+  $email = mysqli_real_escape_string ($db, $_POST['email']);
+	
+	
+	//F	ORMULERA EN FRÅGA TILL DATABASEN
+	$query = "
             INSERT INTO entries
             (date, message, sender, phone, email)
             VALUES
             (NOW(), '$message', '$sender', '$phone', '$email')
-        "; 
+        ";
+	
+	
+	//S	KICKA FRÅGAN TILL DATABASEN
+	mysqli_query($db, $query);
+	
+	//e	cho "Skickat!";
+	//T	og bort. Bytte till onclick på input ovan.
+}
 
-//SKICKA FRÅGAN TILL DATABASEN
-        mysqli_query($db, $query); 
-        //echo "Skickat!"; //Tog bort. Bytte till onclick på input ovan.
-    }
 
 //SORTERA EFTER DATUM STIGANDE
-    $query = "
+$query = "
         SELECT *
         FROM entries
         ORDER BY date DESC
     ";
-    
+
+
 //HÄMTA RESULTATET OCH SKRIV UT DET SOM HTML
-    $result = mysqli_query($db, $query); 
-    while( $row = mysqli_fetch_assoc($result) ){ 
-        echo "
+$result = mysqli_query($db, $query);
+
+while( $row = mysqli_fetch_assoc($result) ){
+	
+	echo "
             <div class='entry'>
                 <p>{$row['date']}</p>
                 <p><strong>Meddelande: </strong>{$row['message']}</p>
@@ -159,13 +173,17 @@
                 <p><strong>Mail: </strong>{$row['email']}</p>
             </div>
         ";
-    };
-  ?>
+	
+}
+;
+
+?>
 </div>
 </div>
 
 <!--INKLUDERAR FOOTER-->
-  <?php include('includes/footer.php'); ?>
+  <?php include('includes/footer.php');
+?>
 
 <!--SCRIPTET ÄR NEDLADDDAT OCH VISAR SOCIALA MEDIER-KNAPPAR. www.addthis.com/dashboard -->
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57f11e36d003b2e7"></script>

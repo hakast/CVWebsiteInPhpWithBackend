@@ -126,7 +126,8 @@
   </script>
 
   <!--INKLUDERAR FOOTER--->
-  <?php include('includes/footer.php'); ?>
+  <?php include('includes/footer.php');
+?>
 
   <!--SCRIPTET ÄR NEDLADDDAT OCH VISAR SOCIALA MEDIER-KNAPPAR-->
   <!-- Go to www.addthis.com/dashboard to customize your tools -->

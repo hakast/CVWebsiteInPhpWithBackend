@@ -2,12 +2,16 @@
 <html>
 <?php
 //INKLUDERAR DATABASUPPKOPPLINGEN
-      include('./admin/config.php');
+include('./admin/config.php');
+
 
 //TILLDELAR UPKOPPLINGEN EN VARIABEL, STÄLLER EN FRÅGA, SPARAR SVARET I EN VARIABEL
-      $connection = mysqli_connect($dbhost, $dbusername, $dbpassword, $dbdatabas);
-      $query = mysqli_query($connection, "SELECT * FROM tablebakgrund WHERE id=1");
-      $result = mysqli_fetch_assoc($query);
+$connection = mysqli_connect($dbhost, $dbusername, $dbpassword, $dbdatabas);
+
+$query = mysqli_query($connection, "SELECT * FROM tablebakgrund WHERE id=1");
+
+$result = mysqli_fetch_assoc($query);
+
 ?>
 
 <!--HEAD-TAGG MED LÄNKAR TILL BLA CSS-FILEN-->    
@@ -29,7 +33,8 @@ function googleTranslateElementInit() {
     
     <?php
 //SKRIVER UT DET SOM FÖR NÄRVARANDE FINNS I AKTUELL TABELL OCH KOLUMN I DB
-        echo $result ["colbakgrund"];
-    ?>
+echo $result ["colbakgrund"];
+
+?>
 </body>
 </html>

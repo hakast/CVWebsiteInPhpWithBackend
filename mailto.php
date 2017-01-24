@@ -14,7 +14,7 @@ function died($error) {
         die();
 }
 	
-//VALIDERING ATT RÄTT DATA MATATS IN
+//VALIDERING ATT DATA MATATS IN
 	if(!isset($_POST['first_name']) ||
     !isset($_POST['mailPrivat']) ||
     !isset($_POST['telephone']) ||
@@ -27,14 +27,16 @@ function died($error) {
 	$telephone = $_POST['telephone'];	
 	$comments = $_POST['comments'];
     $error_message = "";
-    
+
+//VALIDERING AV ATT EN KORREKT MAILADRESS MATATS IN    
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
 		
 	if(!preg_match($email_exp,$email_from)) {
     $error_message .= 'Det verkar vara något fel på den mailadress du skrev in.<br />';
     }
-		
-	$string_exp = "/^[A-Za-z .'-]+$/";	
+
+//GÖR SÅ ATT DET ÄR OKAY ÄVEN MED Å, Ä, Ö
+	$string_exp = "/^[A-Öa-ö .'-]+$/";	
 	
 	if(!preg_match($string_exp,$first_name)) {
     $error_message .= 'Det blev visst fel då du skrev in ditt namn.<br />';
@@ -70,7 +72,7 @@ function died($error) {
 	@mail($email_to, $email_subject, $email_message, $headers);
 ?>
 
-<!-- TACKARTACKAR Ta bort scriptet o ändra tillbaka till ren text???--> 
+<!-- TACKARTACKAR --> 
 <script>alert('Tack för ditt meddelande, jag återkommer inom kort.')
 
 <!--SKICKAR TILLBAKA TILL KONTAKT-SIDAN EFTER ALERTEN-->
